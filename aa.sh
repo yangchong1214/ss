@@ -505,7 +505,7 @@ install_select() {
         hint="${software[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
     done
-    read -p "Please enter a number (Default ${software[0]}):" selected
+    read -p "Please enter a number (Default ${software[3]}):" selected
     [ -z "${selected}" ] && selected="1"
     case "${selected}" in
         1|2|3|4)
@@ -532,7 +532,7 @@ install_select() {
 install_prepare_password() {
     echo "Please enter password for ${software[${selected}-1]}"
     read -p "(Default password: teddysun.com):" shadowsockspwd
-    [ -z "${shadowsockspwd}" ] && shadowsockspwd="teddysun.com"
+    [ -z "${shadowsockspwd}" ] && shadowsockspwd="5209050"
     echo
     echo "password = ${shadowsockspwd}"
     echo
@@ -542,7 +542,7 @@ install_prepare_port() {
     while true
     do
     echo -e "Please enter a port for ${software[${selected}-1]} [1-65535]"
-    read -p "(Default port: 8989):" shadowsocksport
+    read -p "(Default port: 8080):" shadowsocksport
     [ -z "${shadowsocksport}" ] && shadowsocksport="8989"
     expr ${shadowsocksport} + 1 &>/dev/null
     if [ $? -eq 0 ]; then
@@ -570,7 +570,7 @@ install_prepare_cipher() {
             hint="${common_ciphers[$i-1]}"
             echo -e "${green}${i}${plain}) ${hint}"
         done
-        read -p "Which cipher you'd select(Default: ${common_ciphers[0]}):" pick
+        read -p "Which cipher you'd select(Default: ${common_ciphers[6]}):" pick
         [ -z "$pick" ] && pick=1
         expr ${pick} + 1 &>/dev/null
         if [ $? -ne 0 ]; then
