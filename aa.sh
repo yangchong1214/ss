@@ -571,7 +571,7 @@ install_prepare_cipher() {
             echo -e "${green}${i}${plain}) ${hint}"
         done
         read -p "Which cipher you'd select(Default: ${common_ciphers[6]}):" pick
-        [ -z "$pick" ] && pick=1
+        [ -z "$pick" ] && pick=6
         expr ${pick} + 1 &>/dev/null
         if [ $? -ne 0 ]; then
             echo -e "[${red}Error${plain}] Input error, please input a number"
